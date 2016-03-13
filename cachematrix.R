@@ -27,8 +27,10 @@ cacheSolve <- function(x, ...) {
   known_cache = x$getcache()
   
   if(!is.null(known_cache)) {
+    # Then return it as is
     result <- known_cache
   } else {
+    # Then calculate it, cache the result, and return the result
     solved_matrix <- solve(x$get())
     x$setcache(solved_matrix)
     result <- solved_matrix
